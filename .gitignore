@@ -7,16 +7,9 @@ models/
 cache/
 results/
 
-# Generated slides: rebuild locally with scripts/export_figures.py + slides/build_slides.py
-slides/figures/
-slides/preview/
-slides/*.pptx
-slides/kich_ban_demo.md
-
 .venv/
 __pycache__/
 .pytest_cache/
 .gradio/
-.mplcache/
 *.h5
 .DS_Store

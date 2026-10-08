@@ -74,17 +74,6 @@ Biểu đồ Tab 4 hiển thị **trung bình trên 200 cặp key ngẫu nhiên*
 
 Với PolyProtect, một cặp key cụ thể có thể vẫn liên kết được: khi hai key đặt số mũ 1 ở cùng vị trí, vì embedding đã chuẩn hóa có giá trị nhỏ (|v| < 1) nên hạng tử bậc 1 chi phối. Cặp 42/99 (dùng ở Tab 3) rơi đúng vào trường hợp này, nên Tab 4 mặc định dùng 42/7. Nhập 42/99 ở Tab 4 nếu muốn minh họa trường hợp này. Trên ảnh thử, khoảng 15% số cặp key ngẫu nhiên có |cosine| > 0.5. Điều này khớp với Bảng 19 trong doc: chọn (C, E) ngẫu nhiên cho D↔sys 0,14–0,16, chọn chặt cho 0,03–0,04. App tự hiện cảnh báo khi gặp cặp key như vậy.
 
-## Sinh slide trình bày (chạy local)
-
-Slide và kịch bản không nằm trong Git; tạo lại từ ảnh trong `images/` sau khi đã chạy `precompute.py`:
-
-```bash
-MPLCONFIGDIR="$PWD/.mplcache" .venv/bin/python scripts/export_figures.py
-.venv/bin/python slides/build_slides.py
-```
-
-Kết quả: `slides/figures/` (biểu đồ + `numbers.json`), `slides/demo_slides.pptx` (8 slide) và `slides/kich_ban_demo.md` (lời nói từng slide, Q&A, tài liệu tham khảo).
-
 ## Kiểm thử
 
 ```bash
@@ -104,7 +93,5 @@ btp/attack.py          Hill-climbing
 btp/linkage.py         Điểm khác key trên nhiều cặp key
 btp/metrics.py         Cosine, Hamming, ngưỡng
 scripts/precompute.py  Tải weights, cache embedding, in bảng số
-scripts/export_figures.py  Xuất biểu đồ + số liệu cho slide
-slides/build_slides.py Dựng slide .pptx + kịch bản .md
 tests/test_btp.py      Unit test
 ```
