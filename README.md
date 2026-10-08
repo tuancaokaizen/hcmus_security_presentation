@@ -11,6 +11,15 @@ python3 -m venv .venv
 .venv/bin/pip install -r requirements.txt
 ```
 
+Trên Windows (PowerShell hoặc cmd):
+
+```bat
+py -3.12 -m venv .venv
+.venv\Scripts\pip install -r requirements.txt
+```
+
+Các lệnh bên dưới viết cho macOS/Linux. Trên Windows, thay `.venv/bin/python` bằng `.venv\Scripts\python`, ví dụ `.venv\Scripts\python demo_app.py`. Nếu `pip` báo không tìm thấy bản `tensorflow` phù hợp cho Windows, chạy demo trong WSL2 (Ubuntu) theo các lệnh macOS/Linux.
+
 `opencv-python` được ghim ở bản 4.x vì OpenCV 5 không còn kèm file Haar cascade mà DeepFace dùng để tìm khuôn mặt.
 
 ## Chuẩn bị ảnh
