@@ -1,0 +1,15 @@
+# Face photos are biometric data: keep them local
+images/*
+!images/.gitkeep
+
+# Facenet weights (~90MB), embedding cache, recorded numbers
+models/
+cache/
+results/
+
+.venv/
+__pycache__/
+.pytest_cache/
+.gradio/
+*.h5
+.DS_Store

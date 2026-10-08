@@ -1,0 +1,9 @@
+deepface==0.0.101
+tensorflow==2.21.0
+tf-keras==2.21.0
+opencv-python==4.14.0.94
+gradio==6.29.1
+numpy==2.5.3
+pandas==3.0.6
+matplotlib==3.11.2
+pytest==9.1.1
