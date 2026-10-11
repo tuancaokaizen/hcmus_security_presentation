@@ -24,6 +24,20 @@ Các lệnh bên dưới viết cho macOS/Linux. Trên Windows, thay `.venv/bin/
 
 ## Chuẩn bị ảnh
 
+### Ảnh mẫu có sẵn
+
+Repo kèm sẵn 6 ảnh mẫu (3 người, mỗi người 2 ảnh) để chạy thử ngay sau khi clone. Ảnh lấy nguyên từ bộ ảnh test công khai của thư viện DeepFace ([serengil/deepface](https://github.com/serengil/deepface), thư mục `tests/unit/dataset`, giấy phép MIT):
+
+| Ảnh trong repo | File gốc |
+|---|---|
+| `mauA_1.jpg`, `mauA_2.jpg` | `img1.jpg`, `img2.jpg` |
+| `mauB_1.jpg`, `mauB_2.jpg` | `img13.jpg`, `img14.jpg` |
+| `mauC_1.jpg`, `mauC_2.jpg` | `img18.jpg`, `img19.jpg` |
+
+App liệt kê mọi ảnh trong `images/`. Khi dùng ảnh của nhóm, xóa `images/mau*.jpg` trên máy mình (đừng commit thao tác xóa) để ô Ảnh mẫu chỉ còn ảnh nhóm, rồi chạy lại `scripts/precompute.py`.
+
+### Ảnh của nhóm
+
 Đặt 6 ảnh vào `images/`, đặt tên theo dạng `<người>_<số>.jpg`:
 
 ```text
@@ -34,7 +48,7 @@ images/nguoiC_1.jpg  images/nguoiC_2.jpg
 
 Ảnh chụp thẳng mặt, đủ sáng, mỗi ảnh một người. Phần trước dấu `_` cuối cùng được coi là mã người: app dùng nó để ghép sẵn cặp "cùng người" và "khác người" trong ô Ảnh mẫu.
 
-Ảnh khuôn mặt là dữ liệu sinh trắc học nên `images/` nằm trong `.gitignore`: không đẩy lên GitHub.
+Ảnh khuôn mặt là dữ liệu sinh trắc học nên `images/` nằm trong `.gitignore`: ảnh của nhóm không được đẩy lên GitHub. Chỉ các file `images/mau*.jpg` (ảnh mẫu công khai ở trên) được Git theo dõi, nên đừng đặt ảnh nhóm theo tên `mau*`.
 
 ## Chuẩn bị chạy offline
 

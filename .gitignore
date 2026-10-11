@@ -1,6 +1,8 @@
 # Face photos are biometric data: keep them local
 images/*
 !images/.gitkeep
+# Public sample images from the DeepFace test set (MIT), see README
+!images/mau*.jpg
 
 # Facenet weights (~90MB), embedding cache, recorded numbers
 models/
