@@ -281,9 +281,18 @@ def compare_methods(img_db_a: str, img_db_b: str, key_a: int, key_b: int, overla
 # ---------- UI / Giao diện ----------
 
 
+# Larger result text so numbers stay readable on a projector / Chữ kết quả to hơn để đọc rõ trên máy chiếu
+CSS = """
+.result h3 { font-size: 1.7rem; }
+.result p, .result code { font-size: 1.1rem; }
+"""
+
+
 def _examples(component_list, rows):
+    # Collapsed by default to keep each tab short / Thu gọn mặc định để mỗi tab ngắn hơn
     if rows:
-        gr.Examples(examples=rows, inputs=component_list, label="Ảnh mẫu trong images/")
+        with gr.Accordion(f"Ảnh mẫu trong images/ ({len(rows)})", open=False):
+            gr.Examples(examples=rows, inputs=component_list, label=None)
 
 
 def build_app() -> gr.Blocks:
@@ -300,7 +309,7 @@ def build_app() -> gr.Blocks:
                 t1_b = gr.Image(type="filepath", label="Ảnh xác thực (probe)", height=260)
             t1_th = gr.Slider(0.0, 1.0, value=DEFAULT_THRESHOLD, step=0.01, label="Ngưỡng cosine")
             t1_btn = gr.Button("So khớp", variant="primary")
-            t1_out = gr.Markdown()
+            t1_out = gr.Markdown(elem_classes="result")
             _examples([t1_a, t1_b], _pair_examples())
             t1_btn.click(enroll_and_match, [t1_a, t1_b, t1_th], t1_out)
 
@@ -315,7 +324,7 @@ def build_app() -> gr.Blocks:
                     t2_btn = gr.Button("Chạy Attack", variant="stop")
                 with gr.Column(scale=2):
                     t2_plot = gr.Plot(label="Điểm theo vòng lặp")
-                    t2_out = gr.Markdown()
+                    t2_out = gr.Markdown(elem_classes="result")
             _examples([t2_img], _single_examples())
             t2_btn.click(run_attack, [t2_img, t2_iter, t2_sigma, t2_seed, t2_th], [t2_plot, t2_out])
 
@@ -329,7 +338,7 @@ def build_app() -> gr.Blocks:
                     t3_btn = gr.Button("Tạo protected templates", variant="primary")
                 with gr.Column(scale=2):
                     t3_plot = gr.Plot(label="Hai template BioHash")
-                    t3_out = gr.Markdown()
+                    t3_out = gr.Markdown(elem_classes="result")
             _examples([t3_img], _single_examples())
             t3_btn.click(biohash_demo, [t3_img, t3_ka, t3_kb], [t3_plot, t3_out])
 
@@ -344,7 +353,7 @@ def build_app() -> gr.Blocks:
             t4_btn = gr.Button("So sánh 3 phương pháp", variant="primary")
             t4_plot = gr.Plot(label="Mức liên kết giữa 2 CSDL")
             t4_table = gr.Dataframe(label="Số liệu chi tiết", interactive=False)
-            t4_out = gr.Markdown()
+            t4_out = gr.Markdown(elem_classes="result")
             _examples([t4_a, t4_b], _pair_examples(same_person_only=True))
             t4_btn.click(compare_methods, [t4_a, t4_b, t4_ka, t4_kb, t4_ov], [t4_plot, t4_table, t4_out])
 
@@ -352,4 +361,7 @@ def build_app() -> gr.Blocks:
 
 
 if __name__ == "__main__":
-    build_app().launch(server_name="127.0.0.1", server_port=7860)
+    # Gradio 6 takes theme/css in launch(); "lg" text suits a projector
+    # / Gradio 6 nhận theme/css ở launch(); chữ cỡ "lg" hợp với máy chiếu
+    build_app().launch(server_name="127.0.0.1", server_port=7860,
+                       theme=gr.themes.Soft(text_size="lg"), css=CSS)
