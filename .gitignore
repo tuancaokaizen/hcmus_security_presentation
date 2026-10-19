@@ -3,6 +3,9 @@ images/*
 !images/.gitkeep
 # Public sample images from the DeepFace test set (MIT), see README
 !images/mau*.jpg
+# Samples H_1/H_2: keep local only, do not commit
+images/mauH_1.jpg
+images/mauH_2.jpg
 
 # Facenet weights (~90MB), embedding cache, recorded numbers
 models/
