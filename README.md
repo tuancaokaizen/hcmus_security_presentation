@@ -26,13 +26,16 @@ Các lệnh bên dưới viết cho macOS/Linux. Trên Windows, thay `.venv/bin/
 
 ### Ảnh mẫu có sẵn
 
-Repo kèm sẵn 6 ảnh mẫu (3 người, mỗi người 2 ảnh) để chạy thử ngay sau khi clone. Ảnh lấy nguyên từ bộ ảnh test công khai của thư viện DeepFace ([serengil/deepface](https://github.com/serengil/deepface), thư mục `tests/unit/dataset`, giấy phép MIT):
+Repo kèm sẵn 12 ảnh mẫu (6 người, mỗi người 2 ảnh) để chạy thử ngay sau khi clone. Ảnh lấy nguyên từ bộ ảnh test công khai của thư viện DeepFace ([serengil/deepface](https://github.com/serengil/deepface), thư mục `tests/unit/dataset`, giấy phép MIT):
 
 | Ảnh trong repo | File gốc |
 |---|---|
 | `mauA_1.jpg`, `mauA_2.jpg` | `img1.jpg`, `img2.jpg` |
 | `mauB_1.jpg`, `mauB_2.jpg` | `img13.jpg`, `img14.jpg` |
 | `mauC_1.jpg`, `mauC_2.jpg` | `img18.jpg`, `img19.jpg` |
+| `mauD_1.jpg`, `mauD_2.jpg` | `img16.jpg`, `img17.jpg` |
+| `mauE_1.jpg`, `mauE_2.jpg` | `img20.jpg`, `img21.jpg` |
+| `mauF_1.jpg`, `mauF_2.jpg` | `img24.jpg`, `img25.jpg` |
 
 App liệt kê mọi ảnh trong `images/`. Khi dùng ảnh của nhóm, xóa `images/mau*.jpg` trên máy mình (đừng commit thao tác xóa) để ô Ảnh mẫu chỉ còn ảnh nhóm, rồi chạy lại `scripts/precompute.py`.
 
